@@ -17,13 +17,13 @@ connection.connect((err) => {
 });
 
 function getAllUsers() {
-    connection.query("SELECT * FROM users", (err, results) => {
+    connection.query("SELECT * FROM user", (err, results) => {
         if (err) throw err;
-        //console.log(results);
+        console.log(results);
     });
 }
 
-//getAllUsers();
+getAllUsers();
 
 function getAllProducts() {
     connection.query("SELECT * FROM products", (err, results) => {
@@ -32,7 +32,7 @@ function getAllProducts() {
     });
 }
 
-//getAllProducts();
+getAllProducts();
 
 function deleteProduct(productCode) {
     connection.query("DELETE FROM products WHERE product_code = ?", [productCode], (err, results) => {
@@ -41,7 +41,7 @@ function deleteProduct(productCode) {
     });
 }
 
-//deleteProduct("baro1");
+deleteProduct("baro1");
 
 function insertProduct(code, name, price, quantity) {
     connection.query(
@@ -54,7 +54,7 @@ function insertProduct(code, name, price, quantity) {
     );
 }
 
-//insertProduct("piza1", "Pizza", 45.99, 8);
+insertProduct("piza1", "Pizza", 45.99, 8);
 
 function updateProduct(code, newPrice, newQuantity) {
     connection.query(
@@ -62,9 +62,9 @@ function updateProduct(code, newPrice, newQuantity) {
         [newPrice, newQuantity, code],
         (err, results) => {
             if (err) throw err;
-    //console.log(results);
+    console.log(results);
         }
     );
 }
 
-//updateProduct("hand1", 21.50, 3);
+updateProduct("hand1", 21.50, 3);
